@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Header } from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
+import LayoutContainer from "./LayoutContainer";
 
 const spacemono = Space_Mono({
   subsets: ["latin"],
@@ -22,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head/>
+      <head />
       <body
         className={cn(
           spacemono.className,
@@ -31,19 +32,7 @@ export default function RootLayout({
         )}
         suppressHydrationWarning={true}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="flex min-h-screen w-full bg-stone-100 p-1.5 sm:p-4 pt-10 sm:pt-12 transition-all  dark:bg-slate-900 ">
-            <div className="  mx-auto flex w-full max-w-[600px] flex-col gap-8  rounded p-2">
-              <Header />
-              {children}
-            </div>
-          </div>
-        </ThemeProvider>
+        <LayoutContainer>{children}</LayoutContainer>
       </body>
     </html>
   );
