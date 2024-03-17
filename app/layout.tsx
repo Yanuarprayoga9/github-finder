@@ -22,27 +22,29 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-       <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
+      <head/>
       <body
         className={cn(
           spacemono.className,
           "debug-screens",
           "dark:bg-mainDark light:bg-mainLight bg-main"
         )}
+        suppressHydrationWarning={true}
       >
-        <div className="flex min-h-screen w-full bg-stone-100 p-1.5 sm:p-4 pt-10 sm:pt-12 transition-all  dark:bg-slate-900 ">
-          <div className="  mx-auto flex w-full max-w-[600px] flex-col gap-8  rounded p-2">
-            <Header />
-            {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="flex min-h-screen w-full bg-stone-100 p-1.5 sm:p-4 pt-10 sm:pt-12 transition-all  dark:bg-slate-900 ">
+            <div className="  mx-auto flex w-full max-w-[600px] flex-col gap-8  rounded p-2">
+              <Header />
+              {children}
+            </div>
           </div>
-        </div>
+        </ThemeProvider>
       </body>
-      </ThemeProvider>/
     </html>
   );
 }
