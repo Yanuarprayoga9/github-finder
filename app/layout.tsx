@@ -3,6 +3,7 @@ import { Space_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Header } from "@/components/header";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const spacemono = Space_Mono({
   subsets: ["latin"],
@@ -21,11 +22,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+       <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
       <body
         className={cn(
           spacemono.className,
           "debug-screens",
-          "dark:bg-mainDark bg-mainLight bg-main"
+          "dark:bg-mainDark light:bg-mainLight bg-main"
         )}
       >
         <div className="flex min-h-screen w-full bg-stone-100 p-1.5 sm:p-4 pt-10 sm:pt-12 transition-all  dark:bg-slate-900 ">
@@ -35,6 +42,7 @@ export default function RootLayout({
           </div>
         </div>
       </body>
+      </ThemeProvider>/
     </html>
   );
 }
