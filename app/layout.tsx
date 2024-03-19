@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Space_Mono } from "next/font/google";
+import { Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Header } from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
 import LayoutContainer from "./LayoutContainer";
 
-const spacemono = Space_Mono({
-  subsets: ["latin"],
-  weight: ["700"],
-});
+
+const inter = Inter({ subsets: ["latin"] });
+const space_mono = Space_Mono({ subsets: ["latin"], weight: ["400", "700"] });
+
 
 export const metadata: Metadata = {
   title: "Dev-finder",
@@ -26,7 +26,7 @@ export default function RootLayout({
       <head />
       <body
         className={cn(
-          spacemono.className,
+          space_mono.className,
           "debug-screens",
           "dark:bg-mainDark light:bg-mainLight bg-main"
         )}

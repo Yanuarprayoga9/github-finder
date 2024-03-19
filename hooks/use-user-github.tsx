@@ -12,7 +12,7 @@ import { useQuery } from "@tanstack/react-query";
 const useUsers = (userName:string)=> {
     return useQuery({
         queryKey: ["users", userName],
-        queryFn: () => getUserGithubUsername(userName),
+        queryFn: () => getUserGithubUsername(userName)
     });
 };
 
